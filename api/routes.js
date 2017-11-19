@@ -2,12 +2,13 @@ var http = require('request');
 var cors = require('cors');
 var uuid = require('uuid');
 var url = require('url');
-var Playlist = require('../models/Playlist');
+var Playlist = require('./models/Playlist');
+var playlistController = require('./controllers/playlist');
 
 // This is the heart of your HipChat Connect add-on. For more information,
 // take a look at https://developer.atlassian.com/hipchat/tutorials/getting-started-with-atlassian-connect-express-node-js
 module.exports = function (app, addon) {
-  var hipchat = require('../lib/hipchat')(addon);
+  var hipchat = require('./lib/hipchat')(addon);
 
   // simple healthcheck
   app.get('/healthcheck', function (req, res) {
@@ -153,17 +154,18 @@ module.exports = function (app, addon) {
   // https://developer.atlassian.com/hipchat/guide/webhooks
   app.post('/webhook',
     addon.authenticate(),
-    function (req, res) {
-      console.log(req.body);
-      console.log('0-----')
-      console.log(req.body.item.message.from);
-      console.log('0-----')
-      console.log(req.body.item.room.links);
-      hipchat.sendMessage(req.clientInfo, req.identity.roomId, 'pong')
-        .then(function (data) {
-          res.sendStatus(200);
-        });
-    }
+    playlistController
+    // function (req, res) {
+    //   console.log(req.body);
+    //   console.log('0-----')
+    //   console.log(req.body.item.message.from);
+    //   console.log('0-----')
+    //   console.log(req.body.item.room.links);
+    //   hipchat.sendMessage(req.clientInfo, req.identity.roomId, 'pong')
+    //     .then(function (data) {
+    //       res.sendStatus(200);
+    //     });
+    // }
     );
 
   // Notify the room that the add-on was installed. To learn more about

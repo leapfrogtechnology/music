@@ -21,6 +21,8 @@ var http = require('http');
 var path = require('path');
 var os = require('os');
 
+var socket = require('./controllers/socket');
+
 // Uncomment this if you're using redis as your store.
 // ac.store.register('redis', require('atlassian-connect-express-redis'));
 
@@ -74,9 +76,21 @@ if (devEnv) app.use(errorHandler());
 routes(app, addon);
 
 // Boot the damn thing
-http.createServer(app).listen(port, function(){
+// http.createServer(app).listen(port, function(){
+//   console.log()
+//   console.log('Add-on server running at '+ (addon.config.localBaseUrl()||('http://' + (os.hostname()) + ':' + port)));
+//   // Enables auto registration/de-registration of add-ons into a host in dev mode
+//   if (devEnv) addon.register();
+// });
+
+
+var server = require('http').Server(app);
+socket.init(server);
+
+server.listen(port,  function(){
   console.log()
   console.log('Add-on server running at '+ (addon.config.localBaseUrl()||('http://' + (os.hostname()) + ':' + port)));
   // Enables auto registration/de-registration of add-ons into a host in dev mode
   if (devEnv) addon.register();
 });
+
