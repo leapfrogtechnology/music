@@ -1,85 +1,12 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
 
-    <script>
-      // 2. This code loads the IFrame Player API code asynchronously.
-      var tag = document.createElement('script');
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
 
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      // 3. This function creates an <iframe> (and YouTube player)
-      //    after the API code downloads.
-      var player;
-      function onYouTubeIframeAPIReady() {
-        var videoIds = JSON.parse(localStorage.getItem('videoIds'));
-        videoId = videoIds[0];
-        videoIds.splice(0, 1);
-        var playlist = videoIds.join(",")
-
-        player = new YT.Player('player', {
-          videoId: videoId,
-          suggestedQuality: 'default',
-          playerVars: {
-              autoplay: 1,
-              // playlist: playlist,
-              controls: 1,
-              setLoop: 1,
-              setShuffle: 1,
-              modestbranding: 0,
-              rel: 1,
-              showInfo: 0
-          },
-          // events: {
-          //     onReady: resizePlayer
-          // }
-
-          // height: '390',
-          // width: '640',
-          // videoId: 'M7lc1UVf-VE',
-          events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-          }
-        });
-      }
-
-      // 4. The API will call this function when the video player is ready.
-      function onPlayerReady(event) {
-        event.target.playVideo();
-      }
-
-      // 5. The API calls this function when the player's state changes.
-      //    The function indicates that when playing a video (state=1),
-      //    the player should play for six seconds and then stop.
-      var done = false;
-      function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 6000);
-          done = true;
-        }
-      }
-      function stopVideo() {
-        player.stopVideo();
-      }
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-    <script>
-      var socket = io('http://localhost:3000', { reconnect: true });
-
-      socket.on('connection', function(payload) {
-        localStorage.setItem('videoIds', JSON.stringify(payload));
-        console.log(payload)
-      });
-
-      socket.on('add-song', function(payload) {
-        console.log(payload)
-      })
-
-    </script> </body>
+    <script type="text/javascript" src="js/socket.js"></script>
+    <script type="text/javascript" src="js/youtube.js"></script>
+  </body>
 </html>
 

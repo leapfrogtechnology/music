@@ -25,7 +25,10 @@ exports.save = async function(payload) {
 
   var songs = await Promise.all(promises);
   songs = songs.map((song) => camelize(song.toJSON()));
-  socket.emit(songs);
+
+  var playlist = new Playlist;
+  var latestPlaylist = await playlist.latest();
+  socket.emit(latestPlaylist);
 
   return songs;
 }
