@@ -46,5 +46,8 @@ function onPlayerStateChange(event) {
     setTimeout(function() {
       event.target.playVideo();
     }, TWO_SECONDS);
+
+    localStorage.setItem('playlist', localStorage.getItem('newPlaylist'));
+    localStorage.removeItem('newPlaylist');
   }
 }
