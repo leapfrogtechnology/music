@@ -5,7 +5,6 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
-var ONE_SECOND = 1000;
 var TWO_SECONDS = 2000;
 
 function onYouTubeIframeAPIReady() {
@@ -46,7 +45,7 @@ function onPlayerStateChange(event) {
 
     setTimeout(function() {
       event.target.playVideo();
-    }, ONE_SECOND);
+    }, TWO_SECONDS);
 
     localStorage.setItem('playlist', localStorage.getItem('newPlaylist'));
     localStorage.removeItem('newPlaylist');

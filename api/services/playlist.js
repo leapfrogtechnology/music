@@ -28,6 +28,14 @@ exports.save = async function(payload) {
 
   var playlist = new Playlist;
   var latestPlaylist = await playlist.latest();
+
+  if (latestPlaylist.length >= 3) {
+    var firstVideoId = [latestPlaylist[0]];
+    var remainingVideoIds = latestPlaylist.slice(1, latestPlaylist.length);
+
+    latestPlaylist = firstVideoId.concat(playlist.shuffle(remainingVideoIds));
+  }
+
   socket.emit(latestPlaylist);
 
   return songs;
