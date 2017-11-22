@@ -118,7 +118,7 @@ module.exports = function(addon) {
 
     // Only usable if you have the view_group scope. The best way to get
     // the current user is either to use the getRoom method above or
-    // use the client-side JS helpers: https://developer.atlassian.com/hipchat/guide/javascript-api#JavascriptAPI-GettingcontextualinformationfromtheHipChatClient    
+    // use the client-side JS helpers: https://developer.atlassian.com/hipchat/guide/javascript-api#JavascriptAPI-GettingcontextualinformationfromtheHipChatClient
     getUser: function (clientInfo, userId) {
       return request(clientInfo, {
         method: 'GET',
@@ -131,9 +131,9 @@ module.exports = function(addon) {
         method: 'POST',
         resource: '/addon/ui/room/' + roomId,
         body: {
-          "glance": [{
-            "key": moduleKey,
-            "content": glance
+          'glance': [{
+            'key': moduleKey,
+            'content': glance
           }]
         }
       });

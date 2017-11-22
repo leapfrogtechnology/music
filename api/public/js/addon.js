@@ -12,9 +12,9 @@ $(document).ready(function () {
 
   function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
-    var vars = query.split("&");
+    var vars = query.split('&');
     for (var i = 0; i < vars.length; i++) {
-      var pair = vars[i].split("=");
+      var pair = vars[i].split('=');
       if (pair[0] == variable) {
         return pair[1];
       }
@@ -93,10 +93,10 @@ $(document).ready(function () {
 
   /* Functions used by dialog.hbs */
 
-  //Register a listener for the dialog button - primary action "say Hello"
+  //Register a listener for the dialog button - primary action 'say Hello'
   HipChat.register({
-    "dialog-button-click": function (event, closeDialog) {
-      if (event.action === "sample.dialog.action") {
+    'dialog-button-click': function (event, closeDialog) {
+      if (event.action === 'sample.dialog.action') {
         //If the user clicked on the primary dialog action declared in the atlassian-connect.json descriptor:
         sayHello(function (error) {
           if (!error)
