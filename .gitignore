@@ -10,6 +10,10 @@ api/dump.rdb
 api/store.db
 api/leapfrog-music.db
 api/.env
-api/atlassian-connect.json
 api/config.json
 app/config.js
+
+logs/
+Capfile
+log/
+config/

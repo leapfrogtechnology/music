@@ -1,0 +1,62 @@
+{
+  "key": "leapfrog-music",
+  "name": "Leapfrog Music",
+  "description": "Leapfroggers music playlist",
+  "vendor": {
+    "name": "Leapfrog Inc.",
+    "url": "http://lftechnology.com"
+  },
+  "links": {
+    "self": "{{localBaseUrl}}/atlassian-connect.json",
+    "homepage": "{{localBaseUrl}}"
+  },
+  "capabilities": {
+    "hipchatApiConsumer": {
+      "scopes": [
+        "send_notification",
+        "view_room"
+      ],
+      "avatar": {
+        "url": "{{localBaseUrl}}/img/logo.png",
+        "url@2x": "{{localBaseUrl}}/img/logo.png"
+      }
+    },
+    "installable": {
+      "callbackUrl": "{{localBaseUrl}}/installable"
+    },
+    "configurable": {
+      "url": "{{localBaseUrl}}/config"
+    },
+    "webhook": {
+      "url": "{{localBaseUrl}}/webhook",
+      "pattern": "http(?:s?):\/\/(?:www\\.)?youtu(?:be\\.com\/watch\\?v=|\\.be\/)([\\w\\-\\_]*)(&(amp;)?‌​[\\w\\?‌​=]*)?",
+      "event": "room_message",
+      "name": "Leapfrog Music",
+      "authentication": "jwt"
+    },
+    "glance": [
+      {
+        "name": {
+          "value": "Leapfrog Music"
+        },
+        "queryUrl": "{{localBaseUrl}}/glance",
+        "key": "sample.glance",
+        "target": "sample.sidebar",
+        "icon": {
+          "url": "{{localBaseUrl}}/img/logo.png",
+          "url@2x": "{{localBaseUrl}}/img/logo.png"
+        }
+      }
+    ],
+    "webPanel": [
+      {
+        "key": "sample.sidebar",
+        "name": {
+          "value": "Leapfrog Music"
+        },
+        "location": "hipchat.sidebar.right",
+        "url": "{{localBaseUrl}}/sidebar"
+      }
+    ]
+  }
+}

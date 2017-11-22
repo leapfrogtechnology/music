@@ -6,7 +6,7 @@ require('dotenv').config();
 module.exports = {
   client: process.env.DB_CLIENT,
   connection: {
-    filename: __dirname + '/' + process.env.DB_FILE
+    filename: process.env.DB_FILE
   },
   migrations: {
     tableName: 'migrations'
