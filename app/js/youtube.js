@@ -9,7 +9,6 @@ var TWO_SECONDS = 2000;
 
 function onYouTubeIframeAPIReady() {
   if (!localStorage.getItem('playlist')) {
-    console.log('retrying');
     setTimeout(onYouTubeIframeAPIReady, TWO_SECONDS)
   } else {
 
