@@ -9,7 +9,8 @@ module.exports = {
     filename: process.env.DB_FILE
   },
   migrations: {
-    tableName: 'migrations'
+    tableName: 'migrations',
+    directory: './src/migrations'
   },
   useNullAsDefault: true
 }
