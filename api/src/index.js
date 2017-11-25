@@ -1,3 +1,5 @@
+require('babel-polyfill');
+
 var os = require('os');
 var path = require('path');
 var http = require('http');
@@ -14,7 +16,7 @@ var ac = require('atlassian-connect-express');
 var routes = require('./routes');
 var socket = require('./controllers/socket');
 
-dotenv.config();
+dotenv.config(__dirname + '/../.env');
 var VIEWS_DIR = __dirname + '/views';
 var STATIC_DIR = path.join(__dirname, 'public');
 process.env.PWD = process.env.PWD || process.cwd();
