@@ -12,6 +12,7 @@ api/leapfrog-music.db
 api/.env
 api/config.json
 app/config.js
+api/dist
 
 logs/
 Capfile

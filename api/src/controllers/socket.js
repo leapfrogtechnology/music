@@ -3,6 +3,7 @@ var socketIo = require('socket.io');
 var bookshelf = require('../bookshelf');
 var Playlist = require('../models/Playlist');
 
+var socket;
 
 exports.init = function(server) {
   socket = socketIo(server);
