@@ -20,12 +20,14 @@ function onYouTubeIframeAPIReady() {
     videoId: videoId,
     suggestedQuality: 'default',
     playerVars: {
-      loop: 1,
-      autoplay: 1,
-      controls: 1,
-      showInfo: 1,
-      disablekb: 0,
-      playlist: videoIds
+      playlist: videoIds,
+      iv_load_policy: 0,
+      listType: 'playlist',
+      modestbranding: 1,
+      playsinline: 1,
+      rel: 0,
+      showinfo: 1,
+      
     },
     events: {
       onReady: onPlayerReady,
@@ -36,6 +38,7 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
   event.target.playVideo();
+ // $("iframe#player").addClass("embed-responsive-item");
 }
 
 function onPlayerStateChange(event) {

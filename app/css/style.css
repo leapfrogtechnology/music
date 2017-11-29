@@ -1,0 +1,11 @@
+body, html {
+	background-color: #000;
+}
+
+body, html, .container, .row {
+	height: 100%;
+}
+
+#logo  {
+	display: block;
+}
