@@ -1,5 +1,5 @@
 ;(function() {
-  var socket = io(_CONFIG.socket.host + ':' + _CONFIG.socket.port, { reconnect: true });
+  var socket = io(_CONFIG.wsUrl, { reconnect: true });
 
   socket.on('connection', function(payload) {
     localStorage.setItem('playlist', JSON.stringify(payload));
