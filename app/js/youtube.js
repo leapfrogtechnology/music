@@ -12,28 +12,6 @@ function onYouTubeIframeAPIReady() {
     setTimeout(onYouTubeIframeAPIReady, TWO_SECONDS)
   } else {
 
-    var playlist = JSON.parse(localStorage.getItem('playlist'));
-    var videoIds = playlist.slice(1, playlist.length).join(',');
-    var videoId = playlist[0];
-
-    player = new YT.Player('player', {
-      videoId: videoId,
-      suggestedQuality: 'default',
-      playerVars: {
-        loop: 1,
-        autoplay: 1,
-        controls: 1,
-        showInfo: 1,
-        disablekb: 0,
-        playlist: videoIds
-      },
-      events: {
-        onReady: onPlayerReady,
-        onStateChange: onPlayerStateChange
-      }
-    });
-  }
-<<<<<<< HEAD
 
   var playlist = JSON.parse(localStorage.getItem('playlist'));
   var videoIds = playlist.slice(1, playlist.length).join(',');
@@ -57,8 +35,8 @@ function onYouTubeIframeAPIReady() {
       onStateChange: onPlayerStateChange
     }
   });
-=======
->>>>>>> ddc961e8166cfb8ad8fb63345155bda05d67ed31
+
+}
 }
 
 function onPlayerReady(event) {
