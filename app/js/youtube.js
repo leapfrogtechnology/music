@@ -28,9 +28,10 @@ function onYouTubeIframeAPIReady() {
       playsinline: 1,
       rel: 0,
       showinfo: 1,
-      
+
     },
     events: {
+      onError: onPlayerError,
       onReady: onPlayerReady,
       onStateChange: onPlayerStateChange
     }
@@ -41,8 +42,21 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
   event.target.playVideo();
- // $("iframe#player").addClass("embed-responsive-item");
 }
+
+function onPlayerError(event) {
+  var playlist = JSON.parse(localStorage.getItem('playlist'));
+
+  // On error on content video blocked error play next video
+  if (event.data === 150) {
+    if (player.getPlaylistIndex() !== (playlist.length - 1)) {
+      player.nextVideo();
+    } else if (player.getPlaylistIndex() === (playlist.length - 1)) {
+      player.playVideoAt(0);
+    }
+  }
+}
+
 
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.ENDED && localStorage.getItem('newPlaylist')) {
