@@ -5,7 +5,8 @@
   "scripts": {
     "clean": "rimraf dist/",
     "start": "nodemon --exec babel-node src/index.js",
-    "build": "npm run clean && npm run babel",
+    "build": "npm run clean && npm run babel && cp:views",
+    "cp:views": "cp -r src/views dist/views",
     "babel": "babel src/ -d dist/",
     "migrate": "knex migrate:latest",
     "migrate:make": "knex migrate:make",
