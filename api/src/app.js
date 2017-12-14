@@ -9,7 +9,7 @@ var expiry = require('static-expiry');
 var bodyParser = require('body-parser');
 var compression = require('compression');
 var errorHandler = require('errorhandler');
-var ac = require('atlassian-connect-express');
+var addon = require('atlassian-connect-express')(app);
 
 var routes = require('./routes');
 var socket = require('./controllers/socket');
@@ -20,7 +20,6 @@ var STATIC_DIR = path.join(__dirname, 'public');
 process.env.PWD = process.env.PWD || process.cwd();
 
 var app = express();
-var addon = ac(app);
 var port = process.env.PORT;
 var devEnv = app.get('env') == 'development';
 var hipchat = require('atlassian-connect-express-hipchat')(addon, app);
