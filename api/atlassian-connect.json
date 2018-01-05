@@ -27,13 +27,13 @@
     "configurable": {
       "url": "{{localBaseUrl}}/config"
     },
-    "webhook": {
+    "webhook": [{
       "url": "{{localBaseUrl}}/webhook",
       "pattern": "http(?:s?):\/\/(?:www\\.)?youtu(?:be\\.com\/watch\\?v=|\\.be\/)([\\w\\-\\_]*)(&(amp;)?‌​[\\w\\?‌​=]*)?",
       "event": "room_message",
       "name": "Leapfrog Music",
       "authentication": "jwt"
-    },
+    }],
     "glance": [
       {
         "name": {
