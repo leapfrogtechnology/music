@@ -13,6 +13,8 @@
     "atlassian-connect-express-hipchat": "^0.3.5",
     "atlassian-connect-express-redis": "^0.1.6",
     "body-parser": "^1.15.2",
+    "bookshelf": "^0.13.0",
+    "camelize": "^1.0.0",
     "compression": "^1.6.2",
     "cors": "^2.7.1",
     "dotenv": "^5.0.1",
@@ -24,6 +26,9 @@
     "morgan": "^1.7.0",
     "request": "^2.72.0",
     "rsvp": "^3.2.1",
+    "snakeize": "^0.1.0",
+    "socket.io": "^2.0.4",
+    "sqlite3": "^4.0.0",
     "static-expiry": "^0.0.11",
     "uuid": "^2.0.2"
   }
