@@ -1,10 +1,10 @@
 {
-  "key": "leapfrog-music",
-  "name": "Leapfrog Music",
-  "description": "Leapfroggers music playlist",
+  "key": "my-add-on",
+  "name": "LF-MUSIC",
+  "description": "My very first HipChat add-on",
   "vendor": {
-    "name": "Leapfrog Inc.",
-    "url": "http://lftechnology.com"
+    "name": "Angry Nerds",
+    "url": "https://www.hipchat.com"
   },
   "links": {
     "self": "{{localBaseUrl}}/atlassian-connect.json",
@@ -31,13 +31,13 @@
       "url": "{{localBaseUrl}}/webhook",
       "pattern": "http(?:s?):\/\/(?:www\\.)?youtu(?:be\\.com\/watch\\?v=|\\.be\/)([\\w\\-\\_]*)(&(amp;)?‌​[\\w\\?‌​=]*)?",
       "event": "room_message",
-      "name": "Leapfrog Music",
+      "name": "LF-MUSIC",
       "authentication": "jwt"
     },
     "glance": [
       {
         "name": {
-          "value": "Leapfrog Music"
+          "value": "LF-MUSIC"
         },
         "queryUrl": "{{localBaseUrl}}/glance",
         "key": "sample.glance",
@@ -52,10 +52,43 @@
       {
         "key": "sample.sidebar",
         "name": {
-          "value": "Leapfrog Music"
+          "value": "Hello Sidebar!"
         },
         "location": "hipchat.sidebar.right",
         "url": "{{localBaseUrl}}/sidebar"
+      }
+    ],
+    "dialog": [
+      {
+        "key": "sample.dialog",
+        "title": {
+          "value": "Hello Dialog!"
+        },
+        "url": "{{localBaseUrl}}/dialog",
+        "options": {
+          "style": "normal",
+          "primaryAction": {
+            "name": {
+              "value": "Say LF-MUSIC"
+            },
+            "key": "sample.dialog.action",
+            "enabled": true
+          },
+          "size": {
+            "width": "400px",
+            "height": "200px"
+          }
+        }
+      }
+    ],
+    "action": [
+      {
+        "key": "sample.action",
+        "name": {
+          "value": "Open Hello Dialog!"
+        },
+        "target": "sample.dialog",
+        "location": "hipchat.input.action"
       }
     ]
   }
