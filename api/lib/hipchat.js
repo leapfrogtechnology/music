@@ -1,6 +1,6 @@
+var _ = require('lodash');
 var RSVP = require('rsvp');
 var http = require('request');
-var _ = require('lodash');
 
 module.exports = function (addon) {
 

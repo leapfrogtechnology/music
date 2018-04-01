@@ -1,7 +1,7 @@
-var http = require('request');
+var url = require('url');
 var cors = require('cors');
 var uuid = require('uuid');
-var url = require('url');
+var http = require('request');
 
 var playlistController = require('../controllers/playlist');
 
