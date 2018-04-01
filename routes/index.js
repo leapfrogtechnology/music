@@ -146,7 +146,13 @@ module.exports = function (app, addon) {
 
   // This is an example route to handle an incoming webhook
   // https://developer.atlassian.com/hipchat/guide/webhooks
-  app.post('/webhook', addon.authenticate(), playlistController);
+  app.post('/webhook', 
+  addon.authenticate(), 
+  function(req, res, next) {
+    req.body.addon = addon;
+    next();
+  },
+  playlistController);
 
   // Notify the room that the add-on was installed. To learn more about
   // Connect's install flow, check out:
