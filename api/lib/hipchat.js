@@ -1,23 +1,23 @@
+var _ = require('lodash');
 var RSVP = require('rsvp');
 var http = require('request');
-var _ = require('lodash');
 
-module.exports = function(addon) {
+module.exports = function (addon) {
 
-  function request(clientInfo, options){
+  function request(clientInfo, options) {
 
-    return new RSVP.Promise(function(resolve, reject){
+    return new RSVP.Promise(function (resolve, reject) {
 
       function makeRequest(clientInfo) {
-        addon.getAccessToken(clientInfo).then(function(token){
+        addon.getAccessToken(clientInfo).then(function (token) {
           var hipchatBaseUrl = clientInfo.capabilitiesDoc.links.api;
           http({
             method: options.method || 'GET',
             url: hipchatBaseUrl + options.resource,
-            qs: _.extend({auth_token: token.access_token}, options.qs),
+            qs: _.extend({ auth_token: token.access_token }, options.qs),
             body: options.body,
             json: true
-          }, function(err, resp, body){
+          }, function (err, resp, body) {
             if (err || (body && body.error)) {
               reject(err || body.error.message);
               return;
@@ -31,7 +31,7 @@ module.exports = function(addon) {
         reject(new Error('clientInfo not available'));
         return;
       }
-      if (typeof clientInfo === 'object'){
+      if (typeof clientInfo === 'object') {
         makeRequest(clientInfo);
       } else {
         addon.loadClientInfo(clientInfo).then(makeRequest);
@@ -51,6 +51,37 @@ module.exports = function(addon) {
 
   return {
 
+    sendYoutubeCard: function (clientInfo, roomId, msg, opts, card) {
+      opts = (opts && opts.options) || {};
+      card = {
+        style: 'media',
+        id: '6492f0a6-9fa0-48cd-a3dc-2b19a0036e99',
+        url: msg.url,
+        title: msg.title,
+        description: {
+          value: msg.description,
+          format: 'text'
+        },
+        thumbnail: {
+          url: msg.thumbnail,
+          width: 3313,
+          height: 577
+        }
+      }
+
+      return request(clientInfo, {
+        method: 'POST',
+        resource: '/room/' + roomId + '/notification',
+        body: {
+          card: card,
+          message: msg.url,
+          message_format: (opts.format ? opts.format : 'html'),
+          color: (opts.color ? opts.color : 'gray'),
+          notify: (opts.notify ? opts.notify : false)
+        }
+      });
+    },
+
     sendMessage: function (clientInfo, roomId, msg, opts, card){
       opts = (opts && opts.options) || {};
       return request(clientInfo, {
@@ -66,14 +97,14 @@ module.exports = function(addon) {
       });
     },
 
-    getRoomWebhooks: function (clientInfo, roomId){
+    getRoomWebhooks: function (clientInfo, roomId) {
       return new RSVP.Promise(function (resolve, reject) {
         var all = [];
         function getPage(offset) {
           request(clientInfo, {
             method: 'GET',
             resource: '/room/' + roomId + '/webhook',
-            qs: {'start-index': offset}
+            qs: { 'start-index': offset }
           }).then(function (response) {
             if (response.statusCode === 200) {
               var webhooks = response.body;
@@ -118,7 +149,7 @@ module.exports = function(addon) {
 
     // Only usable if you have the view_group scope. The best way to get
     // the current user is either to use the getRoom method above or
-    // use the client-side JS helpers: https://developer.atlassian.com/hipchat/guide/javascript-api#JavascriptAPI-GettingcontextualinformationfromtheHipChatClient
+    // use the client-side JS helpers: https://developer.atlassian.com/hipchat/guide/javascript-api#JavascriptAPI-GettingcontextualinformationfromtheHipChatClient    
     getUser: function (clientInfo, userId) {
       return request(clientInfo, {
         method: 'GET',
@@ -131,9 +162,9 @@ module.exports = function(addon) {
         method: 'POST',
         resource: '/addon/ui/room/' + roomId,
         body: {
-          'glance': [{
-            'key': moduleKey,
-            'content': glance
+          "glance": [{
+            "key": moduleKey,
+            "content": glance
           }]
         }
       });

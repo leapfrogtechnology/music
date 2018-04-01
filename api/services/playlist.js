@@ -9,7 +9,6 @@ var YOUTUBE_URL_REGEX =
 exports.save = async function(payload) {
   var message = payload.item.message.message;
   var user = payload.item.message.from;
-
   var youtubeUrls = message.match(YOUTUBE_URL_REGEX)
 
   var promises = youtubeUrls.map(url => {
@@ -28,15 +27,20 @@ exports.save = async function(payload) {
 
   var playlist = new Playlist;
   var latestPlaylist = await playlist.latest();
+  var latestSongId = latestPlaylist[0];
 
   if (latestPlaylist.length >= 3) {
     var firstVideoId = [latestPlaylist[0]];
     var remainingVideoIds = latestPlaylist.slice(1, latestPlaylist.length);
-
     latestPlaylist = firstVideoId.concat(playlist.shuffle(remainingVideoIds));
   }
 
   socket.emit(latestPlaylist);
 
-  return songs;
+  var msg = {
+    url: message,
+    videoId: latestSongId,
+  }
+  
+  return msg;
 }
