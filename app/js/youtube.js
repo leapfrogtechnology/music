@@ -57,7 +57,6 @@ function onPlayerError(event) {
   }
 }
 
-
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.ENDED && localStorage.getItem('newPlaylist')) {
     var newPlaylist = JSON.parse(localStorage.getItem('newPlaylist')).join(',');

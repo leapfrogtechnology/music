@@ -17,8 +17,8 @@
         "view_room"
       ],
       "avatar": {
-        "url": "{{localBaseUrl}}/img/logo.png",
-        "url@2x": "{{localBaseUrl}}/img/logo.png"
+        "url": "{{localBaseUrl}}/img/lf_music.svg",
+        "url@2x": "{{localBaseUrl}}/img/lf_music.svg"
       }
     },
     "installable": {
@@ -43,8 +43,8 @@
         "key": "sample.glance",
         "target": "sample.sidebar",
         "icon": {
-          "url": "{{localBaseUrl}}/img/logo.png",
-          "url@2x": "{{localBaseUrl}}/img/logo.png"
+          "url": "{{localBaseUrl}}/img/lf_music.svg",
+          "url@2x": "{{localBaseUrl}}/img/lf_music.svg"
         }
       }
     ],

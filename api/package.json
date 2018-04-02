@@ -17,7 +17,7 @@
     "bookshelf": "^0.13.0",
     "camelize": "^1.0.0",
     "compression": "^1.6.2",
-    "cors": "^2.7.1",
+    "cors": "^2.8.4",
     "dotenv": "^5.0.1",
     "errorhandler": "^1.4.3",
     "express": "^4.14.0",

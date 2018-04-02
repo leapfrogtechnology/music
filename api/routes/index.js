@@ -37,7 +37,7 @@ module.exports = function (app, addon) {
         }
       });
     }
-    );
+  );
 
   // This is an example route that's used by the default for the configuration page
   // https://developer.atlassian.com/hipchat/guide/configuration-page
@@ -52,7 +52,7 @@ module.exports = function (app, addon) {
       //   the roomId
       res.render('config', req.context);
     }
-    );
+  );
 
   // This is an example glance that shows in the sidebar
   // https://developer.atlassian.com/hipchat/guide/glances
@@ -74,7 +74,7 @@ module.exports = function (app, addon) {
         }
       });
     }
-    );
+  );
 
   // This is an example end-point that you can POST to to update the glance info
   // Room update API: https://www.hipchat.com/docs/apiv2/method/room_addon_ui_update
@@ -98,7 +98,7 @@ module.exports = function (app, addon) {
         }
       });
     }
-    );
+  );
 
   // This is an example sidebar controller that can be launched when clicking on the glance.
   // https://developer.atlassian.com/hipchat/guide/sidebar
@@ -109,7 +109,7 @@ module.exports = function (app, addon) {
         identity: req.identity
       });
     }
-    );
+  );
 
   // This is an example dialog controller that can be launched when clicking on the glance.
   // https://developer.atlassian.com/hipchat/guide/dialog
@@ -120,7 +120,7 @@ module.exports = function (app, addon) {
         identity: req.identity
       });
     }
-    );
+  );
 
   // Sample endpoint to send a card notification back into the chat room
   // See https://developer.atlassian.com/hipchat/guide/sending-messages
@@ -142,17 +142,17 @@ module.exports = function (app, addon) {
       hipchat.sendMessage(req.clientInfo, req.identity.roomId, msg, opts, card);
       res.json({ status: "ok" });
     }
-    );
+  );
 
   // This is an example route to handle an incoming webhook
   // https://developer.atlassian.com/hipchat/guide/webhooks
-  app.post('/webhook', 
-  addon.authenticate(), 
-  function(req, res, next) {
-    req.body.addon = addon;
-    next();
-  },
-  playlistController);
+  app.post('/webhook',
+    addon.authenticate(),
+    function (req, res, next) {
+      req.body.addon = addon;
+      next();
+    },
+    playlistController);
 
   // Notify the room that the add-on was installed. To learn more about
   // Connect's install flow, check out:
