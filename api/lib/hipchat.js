@@ -59,7 +59,7 @@ module.exports = function (addon) {
         url: msg.url,
         title: msg.title,
         description: {
-          value: msg.description,
+          value: msg.description || 'This video doesn\'t seem to have a description',
           format: 'text'
         },
         thumbnail: {
