@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js",
+    "clean": "rimraf dist/",
+    "build": "npm run clean && npm run babel && npm run cp:views",
+    "cp:views": "cp -r src/views dist/views",
+    "babel": "babel src/ -d dist/",
+    "start": "nodemon --exec babel-node src/app.js",
     "migrate": "knex migrate:latest",
     "migrate:make": "knex migrate:make",
     "migrate:rollback": "knex migrate:rollback"
@@ -13,6 +17,8 @@
     "atlassian-connect-express-hipchat": "^0.3.5",
     "atlassian-connect-express-redis": "^0.1.6",
     "axios": "^0.18.0",
+    "body-parser": "^1.15.2",
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.15.2",
     "bookshelf": "^0.13.0",
     "camelize": "^1.0.0",
@@ -35,6 +41,12 @@
     "uuid": "^2.0.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2016": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "rimraf": "^2.6.2",
     "nodemon": "^1.17.3"
   }
 }
