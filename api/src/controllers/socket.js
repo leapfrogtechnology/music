@@ -1,6 +1,6 @@
 var camelize = require('camelize');
 var socketIo = require('socket.io');
-var bookshelf = require('../bookshelf');
+var bookshelf = require('../../bookshelf');
 var Playlist = require('../models/Playlist');
 
 var socket;

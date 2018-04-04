@@ -17,3 +17,6 @@ api/dist
 logs/
 Capfile
 log/
+config/
+
+api/yarn-error.log
