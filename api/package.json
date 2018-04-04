@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "start": "nodemon app.js",
+    "build": "npm run clean && npm run babel && npm run cp:views",
+    "cp:views": "cp -r src/views dist/views",
+    "babel": "babel src/ -d dist/",
     "migrate": "knex migrate:latest",
     "migrate:make": "knex migrate:make",
     "migrate:rollback": "knex migrate:rollback"
