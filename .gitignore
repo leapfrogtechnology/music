@@ -5,7 +5,7 @@
 .vscode
 *~
 *.swp
-
+api/*.db
 api/dump.rdb
 api/store.db
 api/leapfrog-music.db
