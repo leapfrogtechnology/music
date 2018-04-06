@@ -1,4 +1,4 @@
-FROM node:8.8.1-alpine
+FROM node:carbon-alpine
 ADD ./api /code
 WORKDIR /code
 RUN npm install
