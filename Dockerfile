@@ -1,7 +1,6 @@
 FROM node:carbon-alpine
 ADD ./api /code
 WORKDIR /code
-RUN npm install
-RUN npm run migrate
-RUN npm run build
+RUN npm install -g yarn
+RUN yarn && yarn migrate && yarn build
 CMD ["node","/code/dist/app.js"]
