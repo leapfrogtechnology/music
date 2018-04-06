@@ -1,6 +1,6 @@
 {
   "key": "my-add-on",
-  "name": "LF-MUSIC",
+  "name": "MUSIC",
   "description": "My very first HipChat add-on",
   "vendor": {
     "name": "Angry Nerds",
@@ -31,13 +31,13 @@
       "url": "{{localBaseUrl}}/webhook",
       "pattern": "http(?:s?):\/\/(?:www\\.)?youtu(?:be\\.com\/watch\\?v=|\\.be\/)([\\w\\-\\_]*)(&(amp;)?‌​[\\w\\?‌​=]*)?",
       "event": "room_message",
-      "name": "LF-MUSIC",
+      "name": "MUSIC",
       "authentication": "jwt"
     },
     "glance": [
       {
         "name": {
-          "value": "LF-MUSIC"
+          "value": "MUSIC"
         },
         "queryUrl": "{{localBaseUrl}}/glance",
         "key": "sample.glance",
@@ -69,7 +69,7 @@
           "style": "normal",
           "primaryAction": {
             "name": {
-              "value": "Say LF-MUSIC"
+              "value": "Say MUSIC"
             },
             "key": "sample.dialog.action",
             "enabled": true
