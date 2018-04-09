@@ -54,98 +54,6 @@ module.exports = function (app, addon) {
     }
   );
 
-  // This is an example glance that shows in the sidebar
-  // https://developer.atlassian.com/hipchat/guide/glances
-  app.get('/glance',
-    cors(),
-    addon.authenticate(),
-    function (req, res) {
-      res.json({
-        "label": {
-          "type": "html",
-          "value": "Hello World!"
-        },
-        "status": {
-          "type": "lozenge",
-          "value": {
-            "label": "NEW",
-            "type": "error"
-          }
-        }
-      });
-    }
-  );
-
-  // This is an example end-point that you can POST to to update the glance info
-  // Room update API: https://www.hipchat.com/docs/apiv2/method/room_addon_ui_update
-  // Group update API: https://www.hipchat.com/docs/apiv2/method/addon_ui_update
-  // User update API: https://www.hipchat.com/docs/apiv2/method/user_addon_ui_update
-  app.post('/update_glance',
-    cors(),
-    addon.authenticate(),
-    function (req, res) {
-      res.json({
-        "label": {
-          "type": "html",
-          "value": "Hello World!"
-        },
-        "status": {
-          "type": "lozenge",
-          "value": {
-            "label": "All good",
-            "type": "success"
-          }
-        }
-      });
-    }
-  );
-
-  // This is an example sidebar controller that can be launched when clicking on the glance.
-  // https://developer.atlassian.com/hipchat/guide/sidebar
-  app.get('/sidebar',
-    addon.authenticate(),
-    function (req, res) {
-      res.render('sidebar', {
-        identity: req.identity
-      });
-    }
-  );
-
-  // This is an example dialog controller that can be launched when clicking on the glance.
-  // https://developer.atlassian.com/hipchat/guide/dialog
-  app.get('/dialog',
-    addon.authenticate(),
-    function (req, res) {
-      res.render('dialog', {
-        identity: req.identity
-      });
-    }
-  );
-
-  // Sample endpoint to send a card notification back into the chat room
-  // See https://developer.atlassian.com/hipchat/guide/sending-messages
-  app.post('/send_notification',
-    addon.authenticate(),
-    function (req, res) {
-      var card = {
-        "style": "link",
-        "url": "https://www.hipchat.com",
-        "id": uuid.v4(),
-        "title": req.body.messageTitle,
-        "description": "Great teams use HipChat: Group and private chat, file sharing, and integrations",
-        "icon": {
-          "url": "https://hipchat-public-m5.atlassian.com/assets/img/hipchat/bookmark-icons/favicon-192x192.png"
-        }
-      };
-      var msg = '<b>' + card.title + '</b>: ' + card.description;
-      var opts = { 'options': { 'color': 'yellow' } };
-      hipchat.sendMessage(req.clientInfo, req.identity.roomId, msg, opts, card);
-      res.json({ status: "ok" });
-    }
-  );
-
-  // This is an example route to handle an incoming webhook
-  // https://developer.atlassian.com/hipchat/guide/webhooks
   app.post('/webhook',
     addon.authenticate(),
     function (req, res, next) {
@@ -170,5 +78,4 @@ module.exports = function (app, addon) {
       });
     });
   });
-
 };
