@@ -6,7 +6,7 @@ Ever wondered what Leapfroggers are listening to or just wanted a steady stream 
 Post youtube links of songs you are listening to the channel **Music @ LFT**. It will in turn create a playlist of the latest songs posted at the channel which you can listen to at https://dev.music.lftechnology.com.
 
 ## Setup
-First clone this repository
+First clone this repository.
 
 ```bash
 $ git clone git@github.com:leapfrogtechnology/music.git
@@ -24,7 +24,7 @@ Create a `.env` file for environment variables.
 $ cp .env.example .env
 ```
 
-Run migrations
+Run migrations.
 ```bash
 $ yarn migrate
 ```
@@ -33,9 +33,9 @@ $ yarn migrate
 ```bash
 $ ./ngrok http <your-port-number>
 ```
-Add your ngrok link to `config.json`
+Add your ngrok link to `config.json`.
 
-Running locally
+Running locally.
 ```bash
 $ yarn start
 ```
@@ -49,7 +49,7 @@ Create a `config.js` file.
 $ cd app
 $ cp config.example.js config.js
 ```
-Serve the app using [http-server](https://www.npmjs.com/package/http-server) or a similar package
+Serve the app using [http-server](https://www.npmjs.com/package/http-server) or a similar package.
 ```bash
 $ http-server -p <your-port-number>
 ```
