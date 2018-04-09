@@ -1,6 +1,6 @@
 {
   "key": "my-add-on",
-  "name": "MUSIC",
+  "name": "Music",
   "description": "My very first HipChat add-on",
   "vendor": {
     "name": "Angry Nerds",
@@ -31,13 +31,13 @@
       "url": "{{localBaseUrl}}/webhook",
       "pattern": "http(?:s?):\/\/(?:www\\.)?youtu(?:be\\.com\/watch\\?v=|\\.be\/)([\\w\\-\\_]*)(&(amp;)?‌​[\\w\\?‌​=]*)?",
       "event": "room_message",
-      "name": "MUSIC",
+      "name": "Music",
       "authentication": "jwt"
     },
     "glance": [
       {
         "name": {
-          "value": "MUSIC"
+          "value": "Music"
         },
         "queryUrl": "{{localBaseUrl}}/glance",
         "key": "sample.glance",
@@ -69,7 +69,7 @@
           "style": "normal",
           "primaryAction": {
             "name": {
-              "value": "Say MUSIC"
+              "value": "Say Music"
             },
             "key": "sample.dialog.action",
             "enabled": true
