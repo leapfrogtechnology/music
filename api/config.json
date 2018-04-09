@@ -1,0 +1,39 @@
+{
+    // This is the default environment. To change your app to use
+    "development": {
+        "localBaseUrl": "https://d960531c.ngrok.io",
+        "usePublicKey": false,
+        "watch": false,
+        "port": 3000,
+        "maxTokenAge": 86400,
+        "store": {
+            "adapter": "jugglingdb",
+            "type": "sqlite3",
+            "database": "store.db"
+        }
+    },
+    // the NODE_ENV=production environment variable.
+    "production": {
+        // HipChat add-ons don't use asymmetric key algos
+        "usePublicKey": false,
+        // On a PaaS host like Heroku, the runtime environment will provide the
+        // HTTP port to you via the PORT environement variable, so we configure
+        // that to be honored here.
+        "port": "$PORT",
+        // This is the public URL to your production add-on.
+        "localBaseUrl": "https://your-subdomain.herokuapp.com",
+        "store": {
+            // Let's use Redis as our default data store in prod
+            "adapter": "redis",
+            // Again, a PaaS host like Heroku will probably provide the db connection
+            // URL to you through the environment, so we tell atlassian-connect-express to use that value.
+            "url": "$REDIS_URL"
+        },
+        // Make sure that your add-on can only be registered by the hosts on
+        // these domains.
+        "whitelist": [
+            "*.hipchat.com"
+        ]
+    },
+    "product": "hipchat"
+}

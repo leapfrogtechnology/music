@@ -10,7 +10,6 @@ api/dump.rdb
 api/store.db
 api/leapfrog-music.db
 api/.env
-api/config.json
 app/config.js
 api/dist
 
