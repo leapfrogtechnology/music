@@ -63,7 +63,7 @@ module.exports = function (app, addon) {
       res.json({
         "label": {
           "type": "html",
-          "value": "Hello World!"
+          "value": "Music"
         },
         "status": {
           "type": "lozenge",
@@ -87,7 +87,7 @@ module.exports = function (app, addon) {
       res.json({
         "label": {
           "type": "html",
-          "value": "Hello World!"
+          "value": "Music"
         },
         "status": {
           "type": "lozenge",
@@ -170,5 +170,4 @@ module.exports = function (app, addon) {
       });
     });
   });
-
 };

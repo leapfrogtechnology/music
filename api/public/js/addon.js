@@ -38,7 +38,7 @@ $(document).ready(function () {
               url: '/send_notification',
               headers: {'Authorization': 'JWT ' + token},
               dataType: 'json',
-              data: {messageTitle: 'Hello World!'},
+              data: {messageTitle: 'Music'},
               success: function () {
                 callback(false);
               },

@@ -6,6 +6,141 @@ body, html, .container, .row {
 	height: 100%;
 }
 
-#logo  {
-	display: block;
+a {
+  color: #00cb5b;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+img {
+  width: 100%;
+  vertical-align: top;
+  max-height: 100%;
+}
+
+#logo {
+  display: block;
+  width: 175px;
+  margin: 0 auto 10vh;
+}
+
+.wrapper {
+  background-color: #1b1b1b;
+}
+
+.text-lg {
+  font-size: 18px;
+}
+
+.text-sm {
+  font-size: 12px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.content {
+  margin-top: 10vh;
+  height: 80%;
+  text-align: center;
+}
+
+.background-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: blur(25px);
+  position: absolute;
+  content: '';
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.5;
+}
+
+.background-image:after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  content: '';
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.background-image img {
+  object-fit: cover;
+  height: 100%;
+}
+
+.embed-responsive {
+  border: 5px solid black;
+  border-radius: 3px;
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.5);
+}
+
+.bottom-graphics {
+  position: absolute;
+  width: 210px;
+  right: 20px;
+  bottom: 30px;
+}
+
+.error-image {
+  width: 220px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1100px;
+    max-width: 100%;
+  }
+}
+
+.info-wrapper {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.info-wrapper button {
+  margin-top: 15px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.info-wrapper button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.info-content {
+  border-radius: 6px;
+  font-size: 12px;
+  width: 230px;
+  color: #4a4a4a;
+  padding: 15px;
+}
+
+.section-gradient {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.37) 100%);
+}
+
+.info-content h2 {
+  color: #00cb5b;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 22px;
+  margin-bottom: 15px;
 }
