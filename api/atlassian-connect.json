@@ -1,7 +1,7 @@
 {
   "key": "my-add-on",
   "name": "Music",
-  "description": "My very first HipChat add-on",
+  "description": "Leapfrog Music integration.",
   "vendor": {
     "name": "Angry Nerds",
     "url": "https://www.hipchat.com"
@@ -33,63 +33,6 @@
       "event": "room_message",
       "name": "Music",
       "authentication": "jwt"
-    },
-    "glance": [
-      {
-        "name": {
-          "value": "Music"
-        },
-        "queryUrl": "{{localBaseUrl}}/glance",
-        "key": "sample.glance",
-        "target": "sample.sidebar",
-        "icon": {
-          "url": "{{localBaseUrl}}/img/lf_music.svg",
-          "url@2x": "{{localBaseUrl}}/img/lf_music.svg"
-        }
-      }
-    ],
-    "webPanel": [
-      {
-        "key": "sample.sidebar",
-        "name": {
-          "value": "Hello Sidebar!"
-        },
-        "location": "hipchat.sidebar.right",
-        "url": "{{localBaseUrl}}/sidebar"
-      }
-    ],
-    "dialog": [
-      {
-        "key": "sample.dialog",
-        "title": {
-          "value": "Hello Dialog!"
-        },
-        "url": "{{localBaseUrl}}/dialog",
-        "options": {
-          "style": "normal",
-          "primaryAction": {
-            "name": {
-              "value": "Say Music"
-            },
-            "key": "sample.dialog.action",
-            "enabled": true
-          },
-          "size": {
-            "width": "400px",
-            "height": "200px"
-          }
-        }
-      }
-    ],
-    "action": [
-      {
-        "key": "sample.action",
-        "name": {
-          "value": "Open Hello Dialog!"
-        },
-        "target": "sample.dialog",
-        "location": "hipchat.input.action"
-      }
-    ]
+    }
   }
 }
