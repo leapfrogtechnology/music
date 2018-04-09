@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Info@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-1" transform="translate(-21.000000, -774.000000)" fill="#FFFFFF">
+            <g id="Info" transform="translate(21.000000, 774.000000)">
+                <circle id="Oval-3" fill-opacity="0.249999985" cx="14" cy="14" r="14"></circle>
+                <path d="M12.875,11.388 L15.125,11.388 L15.125,21 L12.875,21 L12.875,11.388 Z M14.009,9.804 C13.600998,9.804 13.2590014,9.67500129 12.983,9.417 C12.7069986,9.15899871 12.569,8.83800192 12.569,8.454 C12.569,8.06999808 12.7069986,7.74900129 12.983,7.491 C13.2590014,7.23299871 13.600998,7.104 14.009,7.104 C14.417002,7.104 14.7589986,7.22699877 15.035,7.473 C15.3110014,7.71900123 15.449,8.02799814 15.449,8.4 C15.449,8.79600198 15.3140013,9.12899865 15.044,9.399 C14.7739986,9.66900135 14.4290021,9.804 14.009,9.804 Z" id="i"></path>
+            </g>
+        </g>
+    </g>
+</svg>

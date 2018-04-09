@@ -15,7 +15,6 @@ module.exports = async function (req, res) {
       description: videoDetails.items[0].snippet.description,
       thumbnail: videoDetails.items[0].snippet.thumbnails.default.url
     };
-
     hipchat.sendYoutubeCard(req.clientInfo, req.body.item.room.id, message);
 
     res.sendStatus(200);

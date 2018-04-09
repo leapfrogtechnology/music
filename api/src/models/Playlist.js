@@ -1,4 +1,4 @@
-var bookshelf = require('../bookshelf');
+var bookshelf = require('../../bookshelf');
 
 var PLAYLIST_QUERY = 'SELECT * FROM playlist ORDER BY date DESC LIMIT 50;';
 var VIDEO_ID_REGEXP = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;

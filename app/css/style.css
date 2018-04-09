@@ -1,9 +1,14 @@
-body, html {
-	background-color: #000;
+body,
+html,
+.container,
+.row,
+.wrapper {
+  height: 100%;
 }
 
-body, html, .container, .row {
-	height: 100%;
+body {
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
 }
 
 a {
