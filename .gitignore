@@ -5,10 +5,8 @@
 .vscode
 *~
 *.swp
-api/*.db
+api/**/*.db
 api/dump.rdb
-api/store.db
-api/leapfrog-music.db
 api/.env
 app/config.js
 api/dist

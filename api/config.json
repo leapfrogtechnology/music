@@ -1,15 +1,15 @@
 {
     // This is the default environment. To change your app to use
     "development": {
-        "localBaseUrl": "https://d960531c.ngrok.io",
+        "localBaseUrl": "$HOST",
         "usePublicKey": false,
         "watch": false,
-        "port": 3000,
+        "port": "$PORT",
         "maxTokenAge": 86400,
         "store": {
             "adapter": "jugglingdb",
             "type": "sqlite3",
-            "database": "store.db"
+            "database": "$STORE"
         }
     },
     // the NODE_ENV=production environment variable.
@@ -21,7 +21,7 @@
         // that to be honored here.
         "port": "$PORT",
         // This is the public URL to your production add-on.
-        "localBaseUrl": "https://your-subdomain.herokuapp.com",
+        "localBaseUrl": "$HOST",
         "store": {
             // Let's use Redis as our default data store in prod
             "adapter": "redis",
