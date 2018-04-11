@@ -36,11 +36,6 @@ exports.save = async function(payload) {
   }
 
   socket.emit(latestPlaylist);
-
-  var msg = {
-    url: message,
-    videoId: latestSongId,
-  }
   
-  return msg;
+  return latestSongId;
 }
